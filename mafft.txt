@@ -1,2 +1,24 @@
-mafftmafft
-mafft
+IPアドレスの確認
+hostname -i
+#127.0.0.1は自分自身を示すアドレスなので違う
+
+scp
+ディレクトリは-rのオプション
+ローカルからサーバーに送る場合送り先は，
+tmasuda[IPアドレス]:/~~~~
+
+ソフトウェアインストール
+#http://www.itmedia.co.jp/help/tips/linux/l0302.html
+#http://cell-innovation.nig.ac.jp/surfers/install_log/MAFFT.html
+#https://www.k-tanaka.net/unix/vi.php
+wget  URL
+tar zxvf filename
+cd mafft___
+
+以下はreadmeに従う
+#./configureコマンドでパスを通す必要があるが，
+今回はreadmeの通りにMakefileを書き換えてパスを通した．
+
+readmeのテストを行う．
+
+mafftコマンドを使う際はbashになってることを確認．
