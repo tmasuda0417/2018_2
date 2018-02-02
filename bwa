@@ -1,1 +1,11 @@
-bwa
+bwaインストール
+#http://koke.asrc.kanazawa-u.ac.jp/HOWTO/bwaOSX.html
+#http://d.hatena.ne.jp/sesejun/20100728/p1
+
+https://sourceforge.net/projects/bio-bwa/files/で最新ファイル確認
+wget URL
+tar jxvf
+cd bwa___
+
+make
+cp bwa $HOME/bin/
