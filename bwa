@@ -9,3 +9,20 @@ cd bwa___
 
 make
 cp bwa $HOME/bin/
+
+
+bwaコマンド
+#https://sites.google.com/site/biotoolsjp/bwa
+
+リファレンスゲノムの取得
+NCBIで種名を検索し，genomeのところからRefSeqのNC____をおし，
+FASTAをsendのボタンから保存．
+.fasta.txtという形式なので，
+mv NAME.fasta.txt NAME.fasta でファイル名を変更する
+
+#https://bi.biopapyrus.jp/rnaseq/mapping/bwa/
+リファレンスゲノムのindexを作成する
+bwa index -p インデックス名 FASTAファイル(リファレンス)
+
+マッピング
+bwa mem インデックス名 FASTQファイル(ターゲット) > 出力ファイル名.sam
