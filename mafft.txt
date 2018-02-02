@@ -5,7 +5,7 @@ hostname -i
 scp
 ディレクトリは-rのオプション
 ローカルからサーバーに送る場合送り先は，
-tmasuda[IPアドレス]:/~~~~
+massuu@[IPアドレス]:/home/massuu/______/
 
 ソフトウェアインストール
 #http://www.itmedia.co.jp/help/tips/linux/l0302.html
