@@ -1,0 +1,26 @@
+samtools
+
+インストール
+#http://ngsdamemorandum.blogspot.jp/2014/04/samtools.html
+#http://www.brain.riken.go.jp/labs/mdmd/exome/0kara.html#3)SAMTools
+
+wget URL 
+tar jxvf samtools.bz2
+cd samtools
+
+vi Makefile
+prefixの行を/home/massuu/に書き換える
+#パスは通ってるので，特になにもしない．
+
+make
+make install
+
+コマンド
+#http://catway.jp/bioinformatics/qc/samtools.html
+samtools view ___.sam > ___.bam
+samtools sort -o ___sort.bam ____.bam
+#-o は出力ファイル名を指定
+
+samtools index ___sor.bam
+#indexの作成
+#最後にindexを作成する必要がある
