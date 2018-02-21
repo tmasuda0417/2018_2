@@ -1,0 +1,14 @@
+gatk picardのインストール
+http://www.brain.riken.go.jp/labs/mdmd/exome/0kara.html
+http://kazumaxneo.hatenablog.com/entry/2017/06/06/123226
+
+picardはjavaで動くため，home/tools/picard/
+にインストールし，コマンドを使うたびに
+java -jar home/tools/picard/--------.jarというように指定して用いる
+
+gatkは多くのサイトがpicardと同じようにつかっているが，
+最近仕様が変わったようで，
+home/tools/gatk/
+にインストールした後に，パスの通った/home/bin/に
+gatk(緑色)をコピーして，bashで
+gatk ソフト名 -------- というようにして用いる
