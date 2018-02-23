@@ -22,3 +22,6 @@ cd mafft___
 readmeのテストを行う．
 
 mafftコマンドを使う際はbashになってることを確認．
+
+コマンド
+--auto --clustalout --reorder "hoge1.fasta" > "hoge1.aln"
