@@ -19,8 +19,9 @@ picard CreateSequenceDictionary R=ref.fa O=ref.dict
 #bwa index -p .fastaファイル名 -a is .fastaファイルを実行したらbwaを行える．
 #この時-pでつけるindexファイル名はfastaファイル名をそのまま用いる
 
-bwa mem -M -R '@RG	id:sample_1	LB:sample_1	PL:ILLUMINA	PM:HISEQ	SM:sample_1' ref.fasta R1.fq R2.fq > aligned_reads.sam
+bwa mem -M -R '@RG¥tID:sample_1¥tLB:sample_1¥tPL:ILLUMINA¥tPM:HISEQ¥tSM:sample_1' ref.fasta R1.fq R2.fq > aligned_reads.sam
 でbwaを実行
+
 
 java -jar picard.jar SortSam INPUT=aligned_reads.sam OUTPUT=sorted_reads.bam SORT_ORDER=coordinate
 #picardのSortSam.jarは/home/tools/picard/picard----/の下にあるので，そこを指定する(以下も同じく)
@@ -29,7 +30,7 @@ java -jar picard.jar CollectAlignmentSummaryMetrics R=ref.fasta I=sorted_reads.b
 
 java -jar picard.jar CollectInsertSizeMetrics INPUT=sorted_reads.bam OUTPUT=insert_metrics.txt HISTOGRAM_FILE=insert_size_histogram.pdf
 
-samtools depth -a sorted_reads.bam > depth_out.txt
+samtools depth -a -d 100000000000 sorted_reads.bam > depth_out.txt
 
 java -jar picard.jar MarkDuplicates INPUT=sorted_reads.bam OUTPUT=dedup_reads.bam METRICS_FILE=metrics.txt
 
