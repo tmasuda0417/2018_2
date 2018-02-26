@@ -12,9 +12,12 @@ NCBI等からリファレンスのfastaファイルをダウンロード
 の手順に従う
 
 リファレンスの.faiと.dictファイルの作成
+samtools faidx ref.fa
+picard CreateSequenceDictionary R=ref.fa O=ref.dict
+.dictファイルはref.fa.dictでなく，ref.dictで良い
 #samtoolsでは.faiファイルはできるがbwaにはかからないので，
 #bwa index -p .fastaファイル名 -a is .fastaファイルを実行したらbwaを行える．
-#-pでつけるindexファイル名はfastaファイル名をそのまま用いる
+#この時-pでつけるindexファイル名はfastaファイル名をそのまま用いる
 
 bwa mem -M -R '@RG	id:sample_1	LB:sample_1	PL:ILLUMINA	PM:HISEQ	SM:sample_1' ref.fasta R1.fq R2.fq > aligned_reads.sam
 でbwaを実行
@@ -36,7 +39,7 @@ java -jar picard.jar BuildBamIndex INPUT=dedup_reads.bam
 RealignerTargetCreator.jarが今回用いているgatk ver4ではないので，
 そのまま10のvariant callを行う
 
-java -jar GenomeAnalysisTK.jar -T HaplotypeCaller -R ref.fa -I sorted_reads.bam -o raw_variants.vcf
+gatk HaplotypeCaller -R ref.fa -I dedup_reads.bam -o raw_variants.vcf
 
 cat .vcf | wc
 #ファイルの行数を数える
