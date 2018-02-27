@@ -40,7 +40,7 @@ java -jar picard.jar BuildBamIndex INPUT=dedup_reads.bam
 RealignerTargetCreator.jarが今回用いているgatk ver4ではないので，
 そのまま10のvariant callを行う
 
-gatk HaplotypeCaller -R ref.fa -I dedup_reads.bam -o raw_variants.vcf
+gatk HaplotypeCaller -R ref.fa -I dedup_reads.bam -O raw_variants.vcf
 
 cat .vcf | wc
 #ファイルの行数を数える
