@@ -26,3 +26,7 @@ bwa index -p インデックス名 FASTAファイル(リファレンス)
 
 マッピング
 bwa mem インデックス名 FASTQファイル(ターゲット) > 出力ファイル名.sam
+
+Mapping rateの計算方法
+samtoolsのfragstatを用いる
+ゲノム配列などを対象にする場合は，querymapを用いるのが良い
