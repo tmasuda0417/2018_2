@@ -1,0 +1,35 @@
+#インストール
+参考ページ
+  http://bioinfo-dojo.net/2017/05/10/fastx-toolkit_install/
+  https://bi.biopapyrus.jp/rnaseq/qc/fastx-toolkit.html
+  http://catway.jp/bioinformatics/qc/removeseq.html
+  http://hannonlab.cshl.edu/fastx_toolkit/download.html
+  
+wget https://github.com/agordon/libgtextutils/releases/download/0.7/libgtextutils-0.7.tar.gz
+tar xzvf libgtextutils-0.7.tar.gz
+cd lib__
+./configure --prefix=$HOME/massuu/bin
+make
+make install
+
+#massuuの下のmassuuにbinができてしまた
+#よって新しくpathを通した
+export PKG_CONFIG_PATH=/home/massuu/massuu/bin/lib/pkgconfig:$PKG_CONFIG_PATH
+echo $PKG_CONFIG_PATH で確認
+
+wget https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2
+tar xf fastx_toolkit-0.0.14.tar.bz2
+cd fastx__
+./configure --prefix=$HOME/massuu/bin
+make
+make install
+
+***http://ngsdamemorandum.blogspot.jp/2014/04/fastx-toolkit.html
+***libgtextutilsのPKG_CONFIG_PATHが通ってなくエラーがでたが，ここのサイトが参考になった
+
+/home/massuu/massuu/bin/binにインストールされたので，新しくpathを通した
+export PATH=${PATH}:/home/massuu/massuu/bin/bin
+echo $PATH で確認
+
+使い方
+fastx_clipper -a GGACTAGTCCTAGGGATAACAGGGTAATCCTGATCAGGT -i 1bp_top_S41_merged_R1.fq -o 1bp_top_trim-iscada.fq
